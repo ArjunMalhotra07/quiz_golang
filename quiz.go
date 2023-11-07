@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	// TestGoroutineFunc()
 	//! STEP 1 : Get file name using CSV Package
 	csvFileName := flag.String("csv", "./utils/problems.csv", "A csv file in the format 'Questions, Answers'")
 	timeLimit := flag.Int("limit", 30, "Time Limit for the Quiz in seconds")
