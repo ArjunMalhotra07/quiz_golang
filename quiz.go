@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
 	"time"
@@ -14,7 +15,7 @@ import (
 func main() {
 	// TestGoroutineFunc()
 	//! STEP 1 : Get file name using CSV Package
-	csvFileName := flag.String("csv", "./utils/problems.csv", "A csv file in the format 'Questions, Answers'")
+	csvFileName := flag.String("csv", "./utils/a.csv", "A csv file in the format 'Questions, Answers'")
 	timeLimit := flag.Int("limit", 30, "Time Limit for the Quiz in seconds")
 
 	flag.Parse()
@@ -35,7 +36,7 @@ func main() {
 	timer := time.NewTimer(time.Duration(*timeLimit) * time.Second)
 
 	//! STEP 5 :  Use variable however you want
-
+	rand.Shuffle(len(problems), func(i, j int) { problems[i], problems[j] = problems[j], problems[i] })
 	questionaires(problems, timer)
 }
 
